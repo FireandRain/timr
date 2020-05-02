@@ -9,25 +9,32 @@ class Timer extends Component {
         super(props)
         this.state = {
             disabled: false,
-            count: 0,
+            seconds: 0,
+            mseconds: 0,
             reset: 0,
         }
       }
 
       additionHandler = () => {
         var _this = this;
-        this.increment = setInterval(() => {
+        this.incrementSeconds = setInterval(() => {
             this.setState({
-                count: (_this.state.count + 1)
+                seconds: (_this.state.seconds + 1)
             });
         }, 1000);
+        this.incrementMseconds = setInterval(() => {
+            this.setState({
+                mseconds: (_this.state.mseconds + 1)
+            });
+        }, 10);
         this.setState({
             disabled: true
         })
         };
 
         stopHandler = () => {
-            clearInterval(this.increment);
+            clearInterval(this.incrementSeconds);
+            clearInterval(this.incrementMseconds)
             this.setState({
                 disabled: false,
             })
@@ -35,11 +42,18 @@ class Timer extends Component {
 
         clearHandler = () => {
             this.setState({
-                count: 0,
+                seconds: 0,
+                mseconds: 0,
             })
         };
 
     render() {
+        if (this.state.mseconds === 99) {
+            this.setState({
+                mseconds: 0,
+            })
+        }
+
         return(
             <div className="timer">
                 <div className="timerNav">
@@ -66,7 +80,8 @@ class Timer extends Component {
 
             {/* Timer display */}
                 <div className="timerDisplay">
-                     <p>{this.state.count}</p>
+                    <p className="seconds">{this.state.seconds}s</p>
+                    <p className="mseconds">{this.state.mseconds}ms</p>
                 </div>
 
             {/* timer buttons  */}

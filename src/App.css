@@ -48,9 +48,18 @@
   box-shadow: 10px 34px 60px 0px rgba(0,0,0,0.2);
   display: inline-flex;
   justify-content: center;
- align-items: center;
+  align-items: center;
   margin-bottom: 2em;
+}
 
+.seconds {
+  margin: 5px;
+  display: inline-flex;
+  font-weight: 600;
+}
+.mseconds {
+  margin: 5px;
+  display: inline-flex;
 }
 
 .timerButtons {
