@@ -59,7 +59,7 @@ class Timer extends Component {
                 <div className="timerNav">
                     <Navbar bg="light" expand="lg">
                         <div className="rightNav">
-                            <Navbar.Brand href="#home">TIMR</Navbar.Brand>
+                            <Navbar.Brand href="#home">TIMRR</Navbar.Brand>
                         </div>
                         <div className="leftNav">
                             <Nav className="mr-auto">
